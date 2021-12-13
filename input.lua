@@ -21,7 +21,8 @@ local press_functions = {
   z = function()
   	if state.canShoot then
   		state.bulletState = true
-			state.getX = true
+  		state.canShoot = false
+  		state.bullet = true
 		end
 	end
 }
@@ -34,8 +35,8 @@ local release_functions = {
     state.button_right = false
   end,
   z = function()
-  	state.bulletState = false
-  	state.canShoot = true
+  state.bulletState = false
+
 	end
 }
 

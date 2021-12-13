@@ -3,6 +3,7 @@ local ship = require('entities/ship')
 local bullet = require('entities/bullet')
 local alien = require('entities/alien')
 local boundary = require('entities/boundary-bottom')
+local roof = require('entities/roof')
 local i = 0
 
 --These are all still fine
@@ -13,6 +14,7 @@ local stageclear = require('entities/stage-clear-text')
 local entities = {
   ship(400, 700),
   boundary(400, 750),
+  roof(400, 10),
   pause(),
   gameover(),
   stageclear()

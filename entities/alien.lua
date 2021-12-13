@@ -4,11 +4,13 @@ local input = require('input')
 
 return function(x_pos, y_pos, number)
   local window_width = love.window.getMode()
-  local entity_speed = 30
+  -- properties
+  local entity_speed = 15
   local entity_width = 50
-
   local entity_height = 50
-
+	--window
+	local left_boundary = (entity_width / 2) + 2
+  local right_boundary = window_width - (entity_width / 2) - 2
   
 local entity = {}
 
@@ -22,14 +24,27 @@ local entity = {}
   entity.health = 1
   entity.type = 'alien'
   
- 	local d = 1
+ 	
  	
   entity.begin_contact = function(self)
 		self.health = self.health - 1
   end
-
+	
   entity.update = function(self)
-    self.body:setLinearVelocity(0, entity_speed)
+    local self_x = self.body:getX()
+    	 	
+	 	if self_x > right_boundary then
+	 		state.d = 0
+ 		elseif self_x < left_boundary then 
+ 			state.d = 1
+		end
+		
+    if state.d == 1 then
+    	self.body:setLinearVelocity(entity_speed*7, entity_speed)
+  	else
+		 	self.body:setLinearVelocity(-entity_speed*7, entity_speed)
+	 	end
+
   end
 
   entity.draw = function(self)

@@ -26,8 +26,8 @@ love.keyreleased = function(released_key)
 end
 
 love.update = function(dt)
-	print(state.getX)
-	print(state.shipX)
+	print(state.bulletState)
+	print(state.canShoot)
   if state.game_over or state.paused or state.stage_cleared then
     return
   end
@@ -35,6 +35,7 @@ love.update = function(dt)
   if state.bulletState then
   	entities[#entities+1] = bullet(state.shipX, 600)
   	state.bulletState = false
+  	state.canShoot = false
 	end
   
   local invasion = false

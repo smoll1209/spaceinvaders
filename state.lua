@@ -13,6 +13,8 @@ return {
   stage_cleared = false,
   bulletState = false,
   canShoot = true,
+  bullet = false,
   shipX = 0, 
+  d = 0,
   getX = false
 }
