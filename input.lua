@@ -1,4 +1,5 @@
 local state = require('state')
+local hitSound = love.audio.newSource("sounds/laser.wav", "static")
 
 -- Map specific user inputs to game states
 local press_functions = {
@@ -12,17 +13,27 @@ local press_functions = {
     love.event.quit()
   end,
   space = function()
-    if state.game_over or state.stage_cleared then
+  	if state.stageWait then
+  		state.stageWait = false
+  		state.stage_cleared = false
+  		print("worked")
+  		return
+		end
+    if state.game_over then
       return
     end
     state.paused = not state.paused
   end,
   
   z = function()
+  if state.stageWait or state.paused or state.game_over then
+		return
+	end
   	if state.canShoot then
   		state.bulletState = true
   		state.canShoot = false
   		state.bullet = true
+  		hitSound:play()
 		end
 	end
 }

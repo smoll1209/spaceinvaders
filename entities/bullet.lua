@@ -6,7 +6,7 @@ return function(x_pos, y_pos)
   
   entity.body = love.physics.newBody(world, x_pos, y_pos, 'dynamic')
 
-  entity.body:setLinearVelocity( 0, -300)
+  entity.body:setLinearVelocity( 0, -500)
   entity.shape = love.physics.newCircleShape(0, 0, 10)
   entity.fixture = love.physics.newFixture(entity.body, entity.shape)
   entity.fixture:setRestitution(0)

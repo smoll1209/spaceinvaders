@@ -1,2 +1,7 @@
-make code for spawning bullet
-reorganize files
+Design Stuff
+	sound
+	sprites
+
+Code stuff
+	Multiple stages(increase speed each stage)
+	increase speed as approach bottom

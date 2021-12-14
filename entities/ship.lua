@@ -3,7 +3,7 @@
 local input = require('input')
 local state = require('state')
 local world = require('world')
-local sound = love.audio.newSource("hit.wav", "static")
+
 
 return function(pos_x, pos_y)
   local window_width = love.window.getMode()

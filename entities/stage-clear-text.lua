@@ -6,7 +6,7 @@ return function()
   local entity = {}
 
   entity.draw = function(self)
-    if state.stage_cleared then
+    if state.stage_cleared or state.stageWait then
       love.graphics.print(
         {state.palette[4], 'STAGE CLEARED'},
         math.floor(window_width / 2) - 110,
